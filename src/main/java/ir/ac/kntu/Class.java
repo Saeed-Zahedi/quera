@@ -10,7 +10,8 @@ public class Class {
      private boolean PrivateStatus;
      private String  Password;
      private String  expelaination;
-     private Client owner;
+     private Client TA;
+     private Client Teacher;
      private ArrayList<Question>HomeWorks=new ArrayList<>();
     public Class(String name, String instituteName, String teacherName, int yearOfCourse, boolean classStatusForRegestion, boolean privateStatus, String password, String expelaination, Client owner) {
         this.name = name;
@@ -21,7 +22,7 @@ public class Class {
         PrivateStatus = privateStatus;
         Password = password;
         this.expelaination = expelaination;
-        this.owner = owner;
+        this.TA = owner;
     }
 
     public Class() {
@@ -49,7 +50,7 @@ public class Class {
     }
 
     public Client getOwner() {
-        return owner;
+        return TA;
     }
 
     public String getName() {

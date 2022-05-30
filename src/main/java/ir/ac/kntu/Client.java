@@ -9,9 +9,6 @@ public class Client {
     private String Email;
     private String passWord;
     private String phoneNumber;
-    private ArrayList<String> HistoryOfHomeWorkSending=new ArrayList<>();
-     ArrayList<Class>joined=new ArrayList<>();
-    private ArrayList<Class>owning=new ArrayList<>();
     public Client(String name, String username, String email, String passWord, String phoneNumber,String ID) {
         this.name = name;
         this.username = username;
@@ -20,9 +17,6 @@ public class Client {
         this.phoneNumber = phoneNumber;
         this.ID=ID;
          AllClients.allClient.add(this);
-    }
-
-    public Client() {
     }
 
     public String getID() {
