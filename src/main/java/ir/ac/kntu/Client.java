@@ -10,7 +10,7 @@ public class Client {
     private String passWord;
     private String phoneNumber;
     private ArrayList<String> HistoryOfHomeWorkSending=new ArrayList<>();
-    private ArrayList<Class>joined=new ArrayList<>();
+     ArrayList<Class>joined=new ArrayList<>();
     private ArrayList<Class>owning=new ArrayList<>();
     public Client(String name, String username, String email, String passWord, String phoneNumber,String ID) {
         this.name = name;
