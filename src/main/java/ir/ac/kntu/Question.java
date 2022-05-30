@@ -9,7 +9,7 @@ public class Question {
     private String answer;
     private boolean visibleStatus;
     private boolean visibleStatusForTable;
-    private ArrayList<Client>HomeWorkSender=new ArrayList<>();
+    private ArrayList<Users>HomeWorkSender=new ArrayList<>();
     private ArrayList<String>HomeWorkHistory=new ArrayList<>();
     private HashMap<String,Double>Ranking=new HashMap<>();
     private HashMap<String,Double>finalRanking=new HashMap<>();
@@ -56,7 +56,7 @@ public class Question {
         return name;
     }
 
-    public void reciveanswer(Client c,String information,String answer){
+    public void reciveanswer(Users c,String information,String answer){
         HomeWorkHistory.add(information+"answer:"+answer);
         HomeWorkSender.add(c);
         double mark=0;

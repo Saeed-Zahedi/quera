@@ -13,11 +13,11 @@ public class Admin {
         PassWord = passWord;
     }
 
-    public void ClassMaker(String name,String instiutename,String teacherName,int year,boolean status,boolean Status2,String password,String expelenation,Client TA) {
+    public void ClassMaker(String name,String instiutename,String teacherName,int year,boolean status,boolean Status2,String password,String expelenation,Users TA) {
         AllClasses.Allclasses.add(new Class(name,instiutename,teacherName,year,status,Status2,password,expelenation,TA));
     }
     public void addStudent(String studentEmail,String className){
-                Searcher.StudentSearcherByEmail(studentEmail).joined.add(Searcher.classSearcherByName(className));
+                Searcher.StudentSearcherByEmail(studentEmail).getStudent().add(Searcher.classSearcherByName(className));
     }
     public void addQuestionToHomeWork(String Classname, String QuestionName){
                 if(Searcher.QuestionExistenceByName(QuestionName)){
@@ -29,17 +29,27 @@ public class Admin {
         }
 
     public void removeClass(String className){
-            int index1=0,index2=0;
-            for(int i=0;i<AllClients.allClient.size();i++){
-                for(int j=0;j<AllClients.allClient.get(i).joined.size();j++){
-                    if(className.equals(AllClients.allClient.get(i).joined.get(j).getName())){
-                        AllClients.allClient.get(i).joined.remove(j);
-                        index1=i;
-                        index2=j;
-                        System.out.println("class:"+className+" removed");
-                    }
+    for(int i=0;i<AllUsers.allUsers.size();i++){
+        for(int j=0;j<AllUsers.allUsers.get(i).getStudent().size();i++){
+            if(AllUsers.allUsers.get(i).getStudent().get(j).equals(Searcher.classSearcherByName(className))){
+                AllUsers.allUsers.get(i).getStudent().remove(j);
+            }
+        }
+    }
+        for(int i=0;i<AllUsers.allUsers.size();i++){
+            for(int j=0;j<AllUsers.allUsers.get(i).getTeacher().size();i++){
+                if(AllUsers.allUsers.get(i).getTeacher().get(j).equals(Searcher.classSearcherByName(className))){
+                    AllUsers.allUsers.get(i).getTeacher().remove(j);
                 }
             }
+        }
+        for(int i=0;i<AllUsers.allUsers.size();i++){
+            for(int j=0;j<AllUsers.allUsers.get(i).getTA().size();i++){
+                if(AllUsers.allUsers.get(i).getTA().get(j).equals(Searcher.classSearcherByName(className))){
+                    AllUsers.allUsers.get(i).getTA().remove(j);
+                }
+            }
+        }
             AllClasses.Allclasses.remove(Searcher.classSearcherByName(className));
     }
     public void makeNewQuestionForHomeWork(String ClassName,String name, double mark, String theQuestion, QuestionType questionType,String answer,Date date,boolean visibility,boolean visibilityForTable){

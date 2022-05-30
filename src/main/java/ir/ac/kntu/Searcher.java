@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Searcher {
     public static Class classSearcherByName(String name){
         int re=0;
-        for(int i=0;i<AllClasses.Allclasses.size();i++){
-            if(AllClasses.Allclasses.get(i).getName().equals(name)){
+        for(int i=0;i<AllUsers.allUsers.size();i++){
+            if(AllUsers.allUsers.get(i).getName().equals(name)){
                 re=i;
                 break;
             }
@@ -21,14 +21,14 @@ public class Searcher {
       }
       return QuestionBank.questions.get(Re);
     }
-    public static Client StudentSearcherByEmail(String email){
+    public static Users StudentSearcherByEmail(String email){
         int re=0;
-        for (int i=0;i<AllClients.allClient.size();i++){
-            if (AllClients.allClient.get(i).getEmail().equals(email)){
+        for (int i=0;i<AllUsers.allUsers.size();i++){
+            if (AllUsers.allUsers.get(i).getEmail().equals(email)){
                 re=i;
             }
         }
-        return AllClients.allClient.get(re);
+        return AllUsers.allUsers.get(re);
     }
     public static boolean classResistanceByName(String name, ArrayList<Class> joined){
         boolean Re=false;
@@ -50,14 +50,14 @@ public class Searcher {
         }
         return Re;
     }
-    public Client studentSearcherByID(String ID){
+    public Users studentSearcherByID(String ID){
         int re=0;
-        for (int i=0;i<AllClients.allClient.size();i++){
-            if (AllClients.allClient.get(i).getID().equals(ID)){
+        for (int i=0;i<AllUsers.allUsers.size();i++){
+            if (AllUsers.allUsers.get(i).getID().equals(ID)){
                 re=i;
             }
         }
-        return AllClients.allClient.get(re);
+        return AllUsers.allUsers.get(re);
     }
     public static Class classSearcherByTeacherName(String TeacherName){
         int re=0;

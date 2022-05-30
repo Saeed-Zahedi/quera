@@ -10,10 +10,10 @@ public class Class {
      private boolean PrivateStatus;
      private String  Password;
      private String  expelaination;
-     private Client TA;
-     private Client Teacher;
+     private Users TA;
+     private Users Teacher;
      private ArrayList<Question>HomeWorks=new ArrayList<>();
-    public Class(String name, String instituteName, String teacherName, int yearOfCourse, boolean classStatusForRegestion, boolean privateStatus, String password, String expelaination, Client owner) {
+    public Class(String name, String instituteName, String teacherName, int yearOfCourse, boolean classStatusForRegestion, boolean privateStatus, String password, String expelaination, Users TA) {
         this.name = name;
         InstituteName = instituteName;
         TeacherName = teacherName;
@@ -22,7 +22,7 @@ public class Class {
         PrivateStatus = privateStatus;
         Password = password;
         this.expelaination = expelaination;
-        this.TA = owner;
+        this.TA = TA;
     }
 
     public Class() {
@@ -49,7 +49,7 @@ public class Class {
         return HomeWorks;
     }
 
-    public Client getOwner() {
+    public Users getTA() {
         return TA;
     }
 
