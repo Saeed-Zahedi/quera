@@ -30,6 +30,15 @@ public class Searcher {
         }
         return AllUsers.allUsers.get(re);
     }
+    public static Users StudentSearcherByUserName(String username){
+        int re=0;
+        for (int i=0;i<AllUsers.allUsers.size();i++){
+            if (AllUsers.allUsers.get(i).getUsername().equals(username)){
+                re=i;
+            }
+        }
+        return AllUsers.allUsers.get(re);
+    }
     public static boolean classResistanceByName(String name, ArrayList<Class> joined){
         boolean Re=false;
         for(int i=0;i<joined.size();i++){
