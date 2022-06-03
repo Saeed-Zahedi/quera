@@ -58,6 +58,24 @@ public class Users {
         this.username = username;
     }
 
+    public void printStudentClass(){
+        System.out.println("classes as student");
+        for(int i=0;i<Student.size();i++){
+            System.out.println(Student.get(i));
+        }
+    }
+    public void printTeacherClass(){
+        System.out.println("classes as Teacher");
+        for(int i=0;i<Teacher.size();i++){
+            System.out.println(Teacher.get(i));
+        }
+    }
+    public void printTAClass(){
+        System.out.println("classes as TA");
+        for(int i=0;i<TA.size();i++){
+            System.out.println(TA.get(i));
+        }
+    }
     @Override
     public String toString() {
         return "Users{" +

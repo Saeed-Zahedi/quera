@@ -15,9 +15,11 @@ public class Login {
         String re= input.next();
         return re;
     }
-    public static  boolean Checker(){
+    public static boolean Checker(){
+        String userName=loginPrint1();
+        String password=loginPrint2();
         try {
-        if(Searcher.StudentSearcherByUserName(loginPrint1()).getPassWord().equals(loginPrint2())){
+        if(Searcher.StudentSearcherByUserName(userName).getPassWord().equals(password)){
                return true;
            }
         else {
@@ -31,13 +33,34 @@ public class Login {
     }
     public static void CheckerPrint() {
         boolean flag = true;
+        boolean flag1=true;
         while (flag) {
-            if (Checker()) {
-                System.out.println("wellcome");
+        String userName=loginPrint1();
+        String password=loginPrint2();
+        try {
+            if(Searcher.StudentSearcherByUserName(userName).getPassWord().equals(password)){
+                flag1=true;
+            }
+            else {
+                flag1=false;
+            }
+        }
+        catch (Exception e){
+            flag1=false;
+        }
+
+            if (flag1) {
+                System.out.println("wellCome");
+                PrintEnterAsClient(userName);
                 flag=false;
             } else {
                 System.out.println("retry");
             }
         }
+    }
+    public static void PrintEnterAsClient(String s){
+       Searcher.StudentSearcherByUserName(s).printStudentClass();
+        Searcher.StudentSearcherByUserName(s).printTeacherClass();
+        Searcher.StudentSearcherByUserName(s).printTAClass();
     }
 }

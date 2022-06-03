@@ -12,6 +12,7 @@ public class app {
             case 1:Login.CheckerPrint();
             break;
             case 2:new Users(Singin.SingInPrint1(),Singin.SingInPrint2(),Singin.SingInPrint4(),Singin.SingInPrint5(),Singin.SingInPrint6(),Singin.SingInPrint3());
+            app app=new app();
             break;
             case 4:System.exit(0);
         }
