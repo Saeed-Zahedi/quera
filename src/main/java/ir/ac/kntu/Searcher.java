@@ -97,4 +97,14 @@ public class Searcher {
         }
         return re;
     }
+    public static Admin AdminSearcher(String UserName){
+        int re=0;
+        for(int i=0;i<AllAdmins.admins.size();i++){
+            if(AllAdmins.admins.get(i).getUserName().equals(UserName)){
+                re=i;
+            }
+        }
+            return AllAdmins.admins.get(re);
+
+    }
 }

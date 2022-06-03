@@ -7,13 +7,27 @@ public class Admin {
     private String UserName;
     private String PassWord;
 
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "name='" + name + '\'' +
+                ", UserName='" + UserName + '\'' +
+                ", PassWord='" + PassWord + '\'' +
+                '}';
+    }
+
     public Admin(String name, String userName, String passWord) {
         this.name = name;
         UserName = userName;
         PassWord = passWord;
+        AllAdmins.admins.add(this);
     }
 
-    public void ClassMaker(String name,String instiutename,String teacherName,int year,boolean status,boolean Status2,String password,String expelenation,Users TA) {
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void ClassMaker(String name, String instiutename, String teacherName, int year, boolean status, boolean Status2, String password, String expelenation, Users TA) {
         AllClasses.Allclasses.add(new Class(name,instiutename,teacherName,year,status,Status2,password,expelenation,TA));
     }
     public void addStudent(String studentEmail,String className){

@@ -5,11 +5,13 @@ import java.util.Scanner;
 
 public class app {
     public  app() {
+        AllAdmins.admins.add(new Admin("saeed","saeed","1234"));
+        System.out.println(AllAdmins.admins.get(0));
         EnterPrint();
         Scanner input=new Scanner(System.in);
         int n=input.nextInt();
         switch (n){
-            case 1:Login.CheckerPrint();
+            case 1:Login.Checker();
             break;
             case 2:new Users(Singin.SingInPrint1(),Singin.SingInPrint2(),Singin.SingInPrint4(),Singin.SingInPrint5(),Singin.SingInPrint6(),Singin.SingInPrint3());
             app app=new app();
