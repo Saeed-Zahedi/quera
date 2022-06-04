@@ -19,10 +19,15 @@ public class Login {
     public static void Checker() {
         boolean flag = true;
         boolean flag1=true;
-        boolean flag2=true;
         while (flag) {
         String userName=loginPrint1();
         String password=loginPrint2();
+       if(AdminChecker(userName,password)){
+           PrintEnterAsAdmin();
+           DoTheActivity(choseTheActivity());
+           Checker();
+           break;
+       }
         try {
             if(Searcher.StudentSearcherByUserName(userName).getPassWord().equals(password)){
                 flag1=true;
@@ -34,25 +39,9 @@ public class Login {
         catch (Exception e){
             flag1=false;
         }
-            try {
-                if(Searcher.AdminSearcher(userName).equals(userName)){
-                    flag2=true;
-                }
-                else {
-                    flag2=false;
-                }
-            }
-            catch (Exception e){
-                flag2=false;
-            }
-
             if (flag1) {
                 System.out.println("wellCome");
                 PrintEnterAsClient(userName);
-                flag=false;
-            }
-            else if(flag2){
-                System.out.println("wellCome Admin");
                 flag=false;
             }
             else {
@@ -60,9 +49,49 @@ public class Login {
             }
         }
     }
+    public static boolean AdminChecker(String Username,String passWord){
+        boolean re=false;
+        for(int i=0;i<AllAdmins.admins.size();i++){
+            if(Searcher.AdminSearcher(Username).getPassWord().equals(passWord)){
+                re= true;
+            }
+        }
+        if(re){
+            System.out.println("Hi Admin");
+        }
+        return re;
+    }
     public static void PrintEnterAsClient(String s){
        Searcher.StudentSearcherByUserName(s).printStudentClass();
         Searcher.StudentSearcherByUserName(s).printTeacherClass();
         Searcher.StudentSearcherByUserName(s).printTAClass();
+    }
+    public static void AdminINUse(){
+
+    }
+    public static void PrintEnterAsAdmin(){
+        System.out.println("1-make class:");
+        System.out.println("2-see the classes");
+    }
+    public static int choseTheActivity(){
+        Scanner input=new Scanner(System.in);
+        return input.nextInt();
+    }
+    public static void DoTheActivity(int input){
+        switch (input){
+            case 1:makingClass();
+                break;
+            case 2:PrintClasses();
+            break;
+            default:
+                System.out.println("not defiend");
+        }
+    }
+    public static void makingClass(){
+        Scanner input=new Scanner(System.in);
+        new Class(input.next());
+    }
+    public  static void PrintClasses() {
+            System.out.println(AllClasses.Allclasses.toString());
     }
 }

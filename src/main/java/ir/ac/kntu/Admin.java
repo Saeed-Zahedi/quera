@@ -23,6 +23,10 @@ public class Admin {
         AllAdmins.admins.add(this);
     }
 
+    public String getPassWord() {
+        return PassWord;
+    }
+
     public String getUserName() {
         return UserName;
     }

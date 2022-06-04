@@ -25,6 +25,11 @@ public class Class {
         this.TA = TA;
     }
 
+    public Class(String name) {
+        this.name = name;
+        AllClasses.Allclasses.add(this);
+    }
+
     public Class() {
 
     }
