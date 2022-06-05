@@ -22,12 +22,14 @@ public class Login {
         while (flag) {
         String userName=loginPrint1();
         String password=loginPrint2();
-       if(AdminChecker(userName,password)){
-           PrintEnterAsAdmin();
-           DoTheActivity(choseTheActivity());
-           Checker();
-           break;
-       }
+        if(Searcher.AdminResistence(userName)) {
+            if (AdminChecker(userName, password)) {
+                PrintEnterAsAdmin();
+                DoTheActivity(choseTheActivity());
+                Checker();
+                break;
+            }
+        }
         try {
             if(Searcher.StudentSearcherByUserName(userName).getPassWord().equals(password)){
                 flag1=true;

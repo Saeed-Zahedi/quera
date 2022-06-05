@@ -76,6 +76,9 @@ public class Users {
             System.out.println(TA.get(i));
         }
     }
+    public void joinTournoment(String name){
+
+    }
     @Override
     public String toString() {
         return "Users{" +

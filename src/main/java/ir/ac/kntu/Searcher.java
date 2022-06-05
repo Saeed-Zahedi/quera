@@ -107,4 +107,32 @@ public class Searcher {
             return AllAdmins.admins.get(re);
 
     }
+    public static boolean AdminResistence(String UserName) {
+        boolean re = false;
+        for (int i = 0; i < AllAdmins.admins.size(); i++) {
+            if (AllAdmins.admins.get(i).getUserName().equals(UserName)) {
+                re = true;
+            }
+        }
+        return re;
+    }
+    public static Tournoment tournomentSearcher(String name){
+        int re=0;
+        for(int i=0;i<AllTournoments.tournoments.size();i++){
+            if(AllTournoments.tournoments.get(i).getName().equals(name)){
+                re=i;
+            }
+        }
+        return AllTournoments.tournoments.get(re);
+    }
+    public static boolean tornomentexistense(String name){
+        boolean re=false;
+        for(Tournoment t:AllTournoments.tournoments){
+            if(t.getName().equals(name)){
+                re=true;
+            }
+        }
+        return re;
+    }
+
 }
