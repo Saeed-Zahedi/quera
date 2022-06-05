@@ -134,5 +134,26 @@ public class Searcher {
         }
         return re;
     }
+    public static void joinGroupINSpecialClass(Users user,String name,String group){
+        boolean flag=false;
+        for( SpecialTournoment t:AllSpecialTournoment.specialTournoments){
+            if(t.getName().equals(name)){
+                for(Group g:t.getGroups()){
+                    if(g.getName().equals(group)){
+                        g.getMembers().add(user);
+                        flag=true;
+                    }
+                }
+                if(!flag){
+                    t.getGroups().add(new Group(group));
+                    for(Group g:t.getGroups()){
+                        if(g.getName().equals(group)){
+                            g.getMembers().add(user);
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }

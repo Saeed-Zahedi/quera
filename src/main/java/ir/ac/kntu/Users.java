@@ -1,6 +1,7 @@
 package ir.ac.kntu;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Users {
     private String name;
@@ -77,8 +78,34 @@ public class Users {
         }
     }
     public void joinTournoment(String name){
+        if(Searcher.tornomentexistense(name)){
+            if(Searcher.tournomentSearcher(name) instanceof )
+        }
 
     }
+    public int TournomentType(String name){
+        if(Searcher.tournomentSearcher(name)instanceof SpecialTournoment){
+            return 1;
+        }
+        else if(Searcher.tournomentSearcher(name)instanceof PrvateTournoment){
+            return 2;
+        }
+        else {
+            return 3;
+        }
+    }
+    public void joinNormalTurnoment(String name){
+        if(Searcher.tournomentSearcher(name).isVisibilityStatus()){
+            Searcher.tournomentSearcher(name).getUsers().add(this);
+        }
+    }
+    public void SpecialTournoment(String name){
+        System.out.println("enter the group name:");
+        Scanner input=new Scanner(System.in);
+        String groupname=input.nextLine();
+        Searcher.joinGroupINSpecialClass(this,name,groupname);
+    }
+
     @Override
     public String toString() {
         return "Users{" +

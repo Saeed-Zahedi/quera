@@ -9,8 +9,11 @@ public class Tournoment {
     private boolean visibilityStatus;
     private Date startingDate;
     private int time;
+    private int Maxnumber;
+    public Tournoment() {
+    }
 
-    public Tournoment(String name, ArrayList<Question> questions, ArrayList<Users> users,int visibility, Date startingDate, int time) {
+    public Tournoment(String name, ArrayList<Question> questions, ArrayList<Users> users, int visibility, Date startingDate, int time) {
         this.name = name;
         this.questions = questions;
         this.users = users;
@@ -27,5 +30,18 @@ public class Tournoment {
 
     public String getName() {
         return name;
+    }
+
+    public boolean isVisibilityStatus() {
+        return visibilityStatus;
+    }
+
+    public ArrayList<Users> getUsers() {
+        return users;
+    }
+    public void visibilityUpdate(){
+        if(users.size()>=Maxnumber){
+            this.visibilityStatus=false;
+        }
     }
 }
