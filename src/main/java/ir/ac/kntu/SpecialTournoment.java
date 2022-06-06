@@ -10,6 +10,7 @@ public class SpecialTournoment extends Tournoment{
         super(name, questions, users, visibility, startingDate, time);
         this.groups = groups;
         AllTournoments.tournoments.add(this);
+        AllSpecialTournoment.specialTournoments.add(this);
     }
 
     public ArrayList<Group> getGroups() {

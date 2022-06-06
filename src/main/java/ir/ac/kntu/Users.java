@@ -87,7 +87,7 @@ public class Users {
         if(Searcher.tournomentSearcher(name)instanceof SpecialTournoment){
             return 1;
         }
-        else if(Searcher.tournomentSearcher(name)instanceof PrvateTournoment){
+        else if(Searcher.tournomentSearcher(name)instanceof PrivateTournoment){
             return 2;
         }
         else {
@@ -98,14 +98,31 @@ public class Users {
         if(Searcher.tournomentSearcher(name).isVisibilityStatus()){
             Searcher.tournomentSearcher(name).getUsers().add(this);
         }
+        Searcher.tournomentSearcher(name).visibilityUpdate();
     }
-    public void SpecialTournoment(String name){
+    public void JoinSpecialTournoment(String name){
+        if(Searcher.tournomentSearcher(name).isVisibilityStatus()){
         System.out.println("enter the group name:");
         Scanner input=new Scanner(System.in);
         String groupname=input.nextLine();
         Searcher.joinGroupINSpecialClass(this,name,groupname);
+        }
+        Searcher.tournomentSearcher(name).visibilityUpdate();
     }
-
+     public void joinPrivateTournoment(String name){
+       boolean check=false;
+       for(PrivateTournoment t:AllprivateTournoments.privateTournoments){
+           for(Users user:t.getChoosenUsers()){
+               if(this.equals(user)){
+                   t.getUsers().add(this);
+                   check=true;
+               }
+           }
+       }
+      if(!check){
+          System.out.println("you haven't been invited");
+      }
+}
     @Override
     public String toString() {
         return "Users{" +
