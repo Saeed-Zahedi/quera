@@ -26,6 +26,11 @@ public class Class {
         this.TA = TA;
     }
 
+    public Class(String name, Users TA) {
+        this.name = name;
+        this.TA = TA;
+    }
+
     public Class(String name) {
         this.name = name;
         AllClasses.Allclasses.add(this);
@@ -73,6 +78,10 @@ public class Class {
 
     public String getPassword() {
         return Password;
+    }
+
+    public void setTA(Users TA) {
+        this.TA = TA;
     }
 
     public Users getTeacher() {

@@ -21,9 +21,9 @@ public class Login {
         boolean flag1=true;
         String userName=loginPrint1();
         String password=loginPrint2();
+        int checker=1;
         if(Searcher.AdminResistence(userName)) {
             if (AdminChecker(userName, password)) {
-               int checker=1;
                while (checker==1) {
                    PrintEnterAsAdmin();
                    DoTheActivity(choseTheActivity(), userName);
@@ -52,10 +52,14 @@ public class Login {
             if (flag1) {
                 System.out.println("wellCome");
                 PrintEnterAsClient(userName);
+                PrintEnterAsClient();
+                UserType(userName);
                 flag=false;
             }
             else {
-                System.out.println("retry");
+                if(checker!=2) {
+                    System.out.println("retry");
+                }
             }
         }
     public  static int checking(){
@@ -92,6 +96,9 @@ public class Login {
         System.out.println("5-see Tournaments");
         System.out.println("6-make Question");
     }
+    public static void PrintEnterAsClient(){
+        System.out.println("1:make class:");
+    }
     public static int choseTheActivity(){
         Scanner input=new Scanner(System.in);
         return input.nextInt();
@@ -113,12 +120,25 @@ public class Login {
                 System.out.println("not defined");
         }
     }
-    public static void DoTheactivityforUser(int input,String Username){
-
+    public static void DoTheActivityForClient(int input,String UserName){
+        switch (input){
+            case 1:makingClass2(UserName);
+                break;
+            default:
+                System.out.println("not defined");
+        }
     }
+
     public static void makingClass(){
         Scanner input=new Scanner(System.in);
         new Class(input.next());
+    }
+    public static void makingClass2(String Username){
+        System.out.println("Enter the name of the class:");
+        Scanner input=new Scanner(System.in);
+        new Class(input.next(),Searcher.StudentSearcherByUserName(Username));
+
+
     }
     public static void PrintClasses() {
         System.out.println(AllClasses.Allclasses.toString());
@@ -145,12 +165,7 @@ public class Login {
         if (Searcher.classSearcherByName(className).getTeacher().equals(Searcher.StudentSearcherByUserName(userName))) {
             return 2;
         } else {
-          //  for (Users user : Searcher.classSearcherByName(className).getMembers()) {
-               // if (Searcher.StudentSearcherByUserName(userName).equals(user)) {
-                    return 3;
-                    //break;
-              //  }
-           // }
+            return 3;
         }
     }
 }
