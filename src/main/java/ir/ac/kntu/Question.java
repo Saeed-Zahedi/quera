@@ -25,6 +25,12 @@ public class Question {
         this.visibleStatusForTable=visiableStatuseForTable;
     }
 
+    public Question(String name, double mark) {
+        this.name = name;
+        this.mark = mark;
+        QuestionBank.questions.add(this);
+    }
+
     public Question() {
     }
 

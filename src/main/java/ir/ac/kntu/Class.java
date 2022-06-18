@@ -10,6 +10,7 @@ public class Class {
      private boolean PrivateStatus;
      private String  Password;
      private String  expelaination;
+     private ArrayList<Users>members=new ArrayList<>();
      private Users TA;
      private Users Teacher;
      private ArrayList<Question>HomeWorks=new ArrayList<>();
@@ -72,6 +73,14 @@ public class Class {
 
     public String getPassword() {
         return Password;
+    }
+
+    public Users getTeacher() {
+        return Teacher;
+    }
+
+    public ArrayList<Users> getMembers() {
+        return members;
     }
 
     @Override

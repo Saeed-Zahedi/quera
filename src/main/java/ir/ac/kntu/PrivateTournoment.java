@@ -9,7 +9,11 @@ public class PrivateTournoment extends Tournoment{
         super(name, questions, users, visibility, startingDate, time);
         AllprivateTournoments.privateTournoments.add(this);
     }
-
+    public PrivateTournoment(String name){
+        super(name);
+        AllTournoments.tournoments.add(this);
+       AllprivateTournoments.privateTournoments.add(this);
+    }
     public ArrayList<Users> getChoosenUsers() {
         return choosenUsers;
     }

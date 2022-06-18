@@ -12,7 +12,9 @@ public class Tournoment {
     private int Maxnumber;
     public Tournoment() {
     }
-
+      public Tournoment(String name){
+        this.name=name;
+      }
     public Tournoment(String name, ArrayList<Question> questions, ArrayList<Users> users, int visibility, Date startingDate, int time) {
         this.name = name;
         this.questions = questions;
@@ -26,6 +28,10 @@ public class Tournoment {
         }
         this.startingDate = startingDate;
         this.time = time;
+    }
+
+    public ArrayList<Question> getQuestions() {
+        return questions;
     }
 
     public String getName() {
@@ -43,5 +49,18 @@ public class Tournoment {
         if(users.size()>=Maxnumber){
             this.visibilityStatus=false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Tournoment{" +
+                "name='" + name + '\'' +
+                ", questions=" + questions +
+                ", users=" + users +
+                ", visibilityStatus=" + visibilityStatus +
+                ", startingDate=" + startingDate +
+                ", time=" + time +
+                ", Maxnumber=" + Maxnumber +
+                '}';
     }
 }

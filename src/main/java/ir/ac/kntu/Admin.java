@@ -1,5 +1,6 @@
 package ir.ac.kntu;
 
+import java.awt.desktop.SystemEventListener;
 import java.util.Scanner;
 
 public class Admin {
@@ -122,6 +123,49 @@ public class Admin {
                 QuestionBank.questions.get(i).toString();
             }
         }
-    }
+        public void makingTournoment(){
+            System.out.println("enter the name of Tournoment");
+            Scanner input=new Scanner(System.in);
+            String name=input.next();
+            System.out.println("enter the type of Tournoment\n1-Normal\n2-private\n3-special");
+            int n=input.nextInt();
+            switch (n){
+                case 1:new NormalTournoment(name);
+                break;
+                case 2:new PrivateTournoment(name);
+                break;
+                case 3:new SpecialTournoment(name);
+                break;
+                default:
+                    System.out.println("sorry the wrong number:)");
+            }
+        }
+        public void addQuestionToTournoment(){
+            System.out.println("Enter the Tournoment name:");
+            Scanner input=new Scanner(System.in);
+            String TournomentName=input.next();
+            System.out.println("enter the Question name:");
+            String QuestionName=input.next();
+        if(Searcher.tornomentexistense(TournomentName)&&Searcher.QuestionExistenceByName(QuestionName)){
+          Searcher.tournomentSearcher(TournomentName).getQuestions().add(Searcher.QuestionSearcher(QuestionName));
+          }
+        else {
+            System.out.println(" question name or Tournoment name is wrong");
+           }
+        }
+        public void seeTheTournoments(){
+        for(Tournoment t:AllTournoments.tournoments){
+            System.out.println(t.toString());
+         }
+        }
+        public void makeQuestion(){
+            System.out.println("Enter the name of Question:");
+            Scanner input=new Scanner(System.in);
+            String name=input.next();
+            System.out.println("enter the mark:");
+            double mark=input.nextDouble();
+            new Question(name,mark);
+        }
+}
 
 

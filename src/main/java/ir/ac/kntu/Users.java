@@ -77,21 +77,16 @@ public class Users {
             System.out.println(TA.get(i));
         }
     }
-    public void joinTournoment(String name){
-        if(Searcher.tornomentexistense(name)){
-            if(Searcher.tournomentSearcher(name) instanceof )
-        }
 
-    }
-    public int TournomentType(String name){
+    public void joinTournoment(String name){
         if(Searcher.tournomentSearcher(name)instanceof SpecialTournoment){
-            return 1;
+           JoinSpecialTournoment(name);
         }
         else if(Searcher.tournomentSearcher(name)instanceof PrivateTournoment){
-            return 2;
+            joinPrivateTournoment(name);
         }
         else {
-            return 3;
+            joinNormalTurnoment(name);
         }
     }
     public void joinNormalTurnoment(String name){

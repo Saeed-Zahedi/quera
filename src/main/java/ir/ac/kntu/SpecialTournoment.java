@@ -13,7 +13,14 @@ public class SpecialTournoment extends Tournoment{
         AllSpecialTournoment.specialTournoments.add(this);
     }
 
+    public SpecialTournoment(String name) {
+        super(name);
+        AllTournoments.tournoments.add(this);
+        AllSpecialTournoment.specialTournoments.add(this);
+    }
+
     public ArrayList<Group> getGroups() {
         return groups;
     }
+
 }
