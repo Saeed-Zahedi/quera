@@ -36,6 +36,10 @@ public class Question {
     public Question() {
     }
 
+    public double getMark() {
+        return mark;
+    }
+
     public boolean isVisibleStatusForTable() {
         return visibleStatusForTable;
     }
@@ -113,6 +117,11 @@ public class Question {
             System.out.println(HomeWorkHistory.get(i));
         }
     }
+
+    public String getAnswer() {
+        return answer;
+    }
+
     public String toString(){
         return "name:"+name+"mark:"+mark+"the question:"+theQuestion;
     }
