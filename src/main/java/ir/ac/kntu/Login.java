@@ -2,6 +2,8 @@ package ir.ac.kntu;
 
 import java.util.Scanner;
 import java.lang.*;
+import java.util.concurrent.ScheduledExecutorService;
+
 public class Login {
     public static String loginPrint1(){
         System.out.println("Enter your username");
@@ -100,7 +102,7 @@ public class Login {
     public static void PrintEnterAsAdmin(){
         System.out.println("1-make class:");
         System.out.println("2-see the classes");
-        System.out.println("3-make Tournament");
+        System.out.println("3-make NormalTournament");
         System.out.println("4-add Question to tournoment");
         System.out.println("5-see Tournaments");
         System.out.println("6-make Question");
@@ -122,9 +124,9 @@ public class Login {
                 break;
             case 2:PrintClasses();
             break;
-          /*  case 3:makingTournoment(UserName);
+            case 3:makeNormalTournoment();
             break;
-            case 4:AddQuestionToTournoment(UserName);
+           /* case 4:AddQuestionToTournoment(UserName);
             break;
             case 5:seeTournoments(UserName);
             break;*/
@@ -294,5 +296,10 @@ public class Login {
        else {
            System.out.println("this tournoment doesn't exist");
        }
+   }
+   public static void makeNormalTournoment(){
+       System.out.println("Enter the name of tournoment");
+       Scanner input=new Scanner(System.in);
+       new NormalTournoment(input.next());
    }
 }
