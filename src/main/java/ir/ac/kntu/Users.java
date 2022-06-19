@@ -78,7 +78,7 @@ public class Users {
         }
     }
 
-    public void joinTournoment(String name){
+  /*  public void joinTournoment(String name){
         if(Searcher.tournomentSearcher(name)instanceof SpecialTournoment){
            JoinSpecialTournoment(name);
         }
@@ -117,7 +117,7 @@ public class Users {
       if(!check){
           System.out.println("you haven't been invited");
       }
-}
+}*/
 
     @Override
     public String toString() {

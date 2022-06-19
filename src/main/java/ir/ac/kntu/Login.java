@@ -113,6 +113,7 @@ public class Login {
         System.out.println("2:go to class:");
         System.out.println("3:join class");
         System.out.println("4:join Tournoment");
+        System.out.println("5:send Answer for Tournoment");
     }
     public static int choseTheActivity(){
         Scanner input=new Scanner(System.in);
@@ -150,6 +151,8 @@ public class Login {
             case 3:joinClass(UserName);
                    break;
             case 4:joinTournomet(UserName);
+            break;
+            case 5:SendAnswerForTournoment(UserName);
             break;
             default:
                 System.out.println("not defined");
@@ -301,5 +304,11 @@ public class Login {
        System.out.println("Enter the name of tournoment");
        Scanner input=new Scanner(System.in);
        new NormalTournoment(input.next());
+   }
+   public static void SendAnswerForTournoment(String Username){
+       System.out.println("Enter the name of Tournoment");
+       Scanner input=new Scanner(System.in);
+       String nameoftournoment=input.next();
+       Searcher.NormalTournomentSearcher(nameoftournoment).receiveAnswer(Username);
    }
 }
