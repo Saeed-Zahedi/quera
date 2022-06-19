@@ -121,12 +121,12 @@ public class Login {
                 break;
             case 2:PrintClasses();
             break;
-            case 3:makingTournoment(UserName);
+          /*  case 3:makingTournoment(UserName);
             break;
             case 4:AddQuestionToTournoment(UserName);
             break;
             case 5:seeTournoments(UserName);
-            break;
+            break;*/
             case 6:makeQuestion(UserName);
             break;
             case 7:setTeacher();
@@ -191,15 +191,8 @@ public class Login {
     public static void PrintClasses() {
         System.out.println(AllClasses.Allclasses.toString());
     }
-    public static void makingTournoment(String username){
-        Searcher.AdminSearcher(username).makingTournoment();
-    }
-    public static void AddQuestionToTournoment(String username){
-        Searcher.AdminSearcher(username).addQuestionToTournoment();
-    }
-    public static void seeTournoments(String username){
-        Searcher.AdminSearcher(username).seeTheTournoments();
-    }
+
+
     public static void makeQuestion(String username){
         Searcher.AdminSearcher(username).makeQuestion();
     }
