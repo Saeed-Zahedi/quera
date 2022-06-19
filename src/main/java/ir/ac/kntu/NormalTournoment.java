@@ -17,6 +17,15 @@ public class NormalTournoment {
         this.name = name;
         AllNormalTournoment.normalTournoments.add(this);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isVisibilityFoEveryOne() {
+        return visibilityFoEveryOne;
+    }
+
     public void getNewMember(String username){
         users.add(Searcher.StudentSearcherByUserName(username));
         checkTheVisibility();
@@ -53,5 +62,12 @@ public class NormalTournoment {
         else {
             System.out.println("this tournomenet doesn't have this Question");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "NormalTournoment{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

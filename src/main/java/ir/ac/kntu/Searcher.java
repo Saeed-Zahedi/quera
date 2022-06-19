@@ -116,18 +116,18 @@ public class Searcher {
         }
         return re;
     }
-    public static Tournoment tournomentSearcher(String name){
+    public static NormalTournoment NormalTournomentSearcher(String name){
         int re=0;
-        for(int i=0;i<AllTournoments.tournoments.size();i++){
-            if(AllTournoments.tournoments.get(i).getName().equals(name)){
+        for(int i=0;i<AllNormalTournoment.normalTournoments.size();i++){
+            if(AllNormalTournoment.normalTournoments.get(i).getName().equals(name)){
                 re=i;
             }
         }
-        return AllTournoments.tournoments.get(re);
+        return AllNormalTournoment.normalTournoments.get(re);
     }
-    public static boolean tornomentexistense(String name){
+    public static boolean NormalTornomentexistense(String name){
         boolean re=false;
-        for(Tournoment t:AllTournoments.tournoments){
+        for(NormalTournoment t:AllNormalTournoment.normalTournoments){
             if(t.getName().equals(name)){
                 re=true;
             }

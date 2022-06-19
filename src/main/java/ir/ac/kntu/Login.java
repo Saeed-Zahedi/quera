@@ -110,6 +110,7 @@ public class Login {
         System.out.println("1:make class:");
         System.out.println("2:go to class:");
         System.out.println("3:join class");
+        System.out.println("4:join Tournoment");
     }
     public static int choseTheActivity(){
         Scanner input=new Scanner(System.in);
@@ -146,6 +147,8 @@ public class Login {
                 break;
             case 3:joinClass(UserName);
                    break;
+            case 4:joinTournomet(UserName);
+            break;
             default:
                 System.out.println("not defined");
         }
@@ -274,5 +277,22 @@ public class Login {
        String className=input.next();
        Searcher.classSearcherByName(className).setTeacher(Searcher.StudentSearcherByUserName(username));
        Searcher.StudentSearcherByUserName(username).getTeacher().add(Searcher.classSearcherByName(className));
+   }
+   public static void joinTournomet(String Username){
+       System.out.println("Normal tournoment:");
+       for(NormalTournoment tournoment:AllNormalTournoment.normalTournoments){
+           if(tournoment.isVisibilityFoEveryOne()){
+               System.out.println(tournoment);
+           }
+       }
+       System.out.println("Enter the name of Tournoment");
+       Scanner input=new Scanner(System.in);
+       String nameoftournoment=input.next();
+       if(Searcher.NormalTornomentexistense(nameoftournoment)){
+           Searcher.NormalTournomentSearcher(nameoftournoment).getNewMember(Username);
+       }
+       else {
+           System.out.println("this tournoment doesn't exist");
+       }
    }
 }
