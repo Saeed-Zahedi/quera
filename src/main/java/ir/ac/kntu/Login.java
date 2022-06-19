@@ -127,9 +127,9 @@ public class Login {
             break;
             case 3:makeNormalTournoment();
             break;
-           /* case 4:AddQuestionToTournoment(UserName);
+            case 4:AddQuestiontoTournoment();
             break;
-            case 5:seeTournoments(UserName);
+            /*case 5:seeTournoments(UserName);
             break;*/
             case 6:makeQuestion(UserName);
             break;
@@ -310,5 +310,20 @@ public class Login {
        Scanner input=new Scanner(System.in);
        String nameoftournoment=input.next();
        Searcher.NormalTournomentSearcher(nameoftournoment).receiveAnswer(Username);
+   }
+   public static void AddQuestiontoTournoment(){
+       System.out.println("Enter the name of tournoment");
+       Scanner input=new Scanner(System.in);
+       String TournomentName=input.next();
+       System.out.println("Enter the name of Question:");
+       String QuestionName=input.next();
+       if(Searcher.NormalTornomentexistense(TournomentName)){
+           if(Searcher.QuestionExtension(QuestionName,QuestionBank.questions)){
+           Searcher.NormalTournomentSearcher(TournomentName).getQuestions().add(Searcher.QuestionSearcher(QuestionName));
+           }
+           else {
+               System.out.println("this Qestion desn't exist");
+           }
+       }
    }
 }
