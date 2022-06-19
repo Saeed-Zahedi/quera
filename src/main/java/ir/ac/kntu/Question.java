@@ -1,6 +1,8 @@
 package ir.ac.kntu;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
+
 public class Question {
     private String name;
     private double mark;
@@ -62,8 +64,11 @@ public class Question {
         return name;
     }
 
-    public void reciveanswer(Users c,String information,String answer){
-        HomeWorkHistory.add(information+"answer:"+answer);
+    public  void reciveanswer(Users c){
+        System.out.println("Enter your answer:");
+        Scanner input=new Scanner(System.in);
+        String answer=input.next();
+        HomeWorkHistory.add(c+"answer:"+answer);
         HomeWorkSender.add(c);
         double mark=0;
         if(this.answer.equals(answer)){

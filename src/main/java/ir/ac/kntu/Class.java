@@ -26,9 +26,22 @@ public class Class {
         this.TA = TA;
     }
 
-    public Class(String name, Users TA) {
+    public Class(String name, Users TA, Users teacher) {
         this.name = name;
         this.TA = TA;
+        Teacher = teacher;
+        AllClasses.Allclasses.add(this);
+        TA.getTA().add(this);
+        teacher.getTeacher().add(this);
+    }
+
+    public Class(String name, Users TA, String username) {
+        this.name = name;
+        this.TA = TA;
+        this.Teacher=TA;
+        AllClasses.Allclasses.add(this);
+        Searcher.StudentSearcherByUserName(username).getTA().add(this);
+        Searcher.StudentSearcherByUserName(username).getTeacher().add(this);
     }
 
     public Class(String name) {
@@ -38,6 +51,10 @@ public class Class {
 
     public Class() {
 
+    }
+
+    public void setTeacher(Users teacher) {
+        Teacher = teacher;
     }
 
     public void setName(String name) {

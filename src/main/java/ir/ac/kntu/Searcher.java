@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Searcher {
     public static Class classSearcherByName(String name){
         int re=0;
-        for(int i=0;i<AllUsers.allUsers.size();i++){
-            if(AllUsers.allUsers.get(i).getName().equals(name)){
+        for(int i=0;i<AllClasses.Allclasses.size();i++){
+            if(AllClasses.Allclasses.get(i).getName().equals(name)){
                 re=i;
                 break;
             }
@@ -155,5 +155,22 @@ public class Searcher {
             }
         }
     }
-
+     public static boolean ClassResistenceByName(String className){
+        boolean re=false;
+        for(int i=0;i<AllClasses.Allclasses.size();i++){
+            if(AllClasses.Allclasses.get(i).getName().equals(className)){
+                re =true;
+            }
+        }
+        return re;
+     }
+     public static boolean StudentResistance(String userName){
+        boolean re=false;
+        for(Users u:AllUsers.allUsers){
+            if(u.getUsername().equals(userName)){
+                re=true;
+            }
+        }
+        return re;
+     }
 }

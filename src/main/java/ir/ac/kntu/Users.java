@@ -66,13 +66,13 @@ public class Users {
         }
     }
     public void printTeacherClass(){
-        System.out.println("classes as Teacher");
+        System.out.println("classes as Teacher\n");
         for(int i=0;i<Teacher.size();i++){
             System.out.println(Teacher.get(i));
         }
     }
     public void printTAClass(){
-        System.out.println("classes as TA");
+        System.out.println("classes as TA\n");
         for(int i=0;i<TA.size();i++){
             System.out.println(TA.get(i));
         }
@@ -118,6 +118,7 @@ public class Users {
           System.out.println("you haven't been invited");
       }
 }
+
     @Override
     public String toString() {
         return "Users{" +
