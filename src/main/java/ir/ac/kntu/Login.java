@@ -308,7 +308,15 @@ public class Login {
            }
        }
        System.out.println("Special Tournoments");
-
+       for(SpecialTournoment t:AllSpecialTournoments.specialTournoments){
+           for (Users u:t.getRequested()){
+               if(u.getUsername().equals(Username)){
+                   if(t.isVisibilityForUsers()) {
+                       System.out.println(t);
+                   }
+               }
+           }
+       }
        System.out.println("Enter the name of Tournoment");
        Scanner input=new Scanner(System.in);
        String nameoftournoment=input.next();
@@ -317,6 +325,9 @@ public class Login {
        }
        else if(Searcher.PrivateTournomentExistance(nameoftournoment)){
            Searcher.privateTournoment(nameoftournoment).getNewMember(Username);
+       }
+       else if(Searcher.SpecialTournomentResistance(nameoftournoment)){
+           Searcher.SpecialTournomentSearcher(nameoftournoment).getNewMember();
        }
        else {
            System.out.println("this tournoment doesn't exist");

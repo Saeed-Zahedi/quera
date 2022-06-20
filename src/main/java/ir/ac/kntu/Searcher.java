@@ -218,4 +218,15 @@ public class Searcher {
         }
         return AllSpecialTournoments.specialTournoments.get(re);
     }
+    public static Group WhatIsMyGroup(String username,ArrayList<Group>groups){
+         Group g_re=groups.get(0);
+         for (Group g:groups){
+             for(Users u:g.getMembers()){
+                 if(u.getUsername().equals(username)){
+                     g_re=g;
+                 }
+             }
+         }
+         return g_re;
+    }
 }
