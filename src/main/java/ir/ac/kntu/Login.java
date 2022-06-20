@@ -356,6 +356,12 @@ public class Login {
        if(Searcher.PrivateTournomentExistance(nameoftournoment)){
            Searcher.privateTournoment(nameoftournoment).receiveAnswer(Username);
        }
+       if(Searcher.SpecialTournomentResistance(nameoftournoment)){
+           Searcher.SpecialTournomentSearcher(nameoftournoment).receiveAnswer(Username);
+       }
+       else {
+           System.out.println("this tournoment doesn't exist");
+       }
    }
    public static void AddQuestiontoTournoment(){
        System.out.println("Enter the name of tournoment");
