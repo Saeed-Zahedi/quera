@@ -173,4 +173,22 @@ public class Searcher {
         }
         return re;
      }
+    public static PrivateTournoment privateTournoment(String name){
+        int re=0;
+        for(int i=0;i<AllPrivateTournoment.privateTournoments.size();i++){
+            if(AllPrivateTournoment.privateTournoments.get(i).getName().equals(name)){
+                re=i;
+            }
+        }
+        return AllPrivateTournoment.privateTournoments.get(re);
+    }
+    public static boolean PrivateTournomentExistance(String name){
+        boolean re=false;
+        for(PrivateTournoment t:AllPrivateTournoment.privateTournoments){
+            if(t.getName().equals(name)){
+                re=true;
+            }
+        }
+        return re;
+    }
 }

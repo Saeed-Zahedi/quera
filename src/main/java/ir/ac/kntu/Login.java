@@ -107,6 +107,7 @@ public class Login {
         System.out.println("5-see Tournaments");
         System.out.println("6-make Question");
         System.out.println("7-set teacher for class");
+        System.out.println("8-join new member to the Private Tournoment");
     }
     public static void PrintEnterAsClient(){
         System.out.println("1:make class:");
@@ -325,5 +326,12 @@ public class Login {
                System.out.println("this Qestion desn't exist");
            }
        }
+   }
+   public static void joinforPTournoment(){
+       System.out.println("Enter the name of tournoment");
+       Scanner input=new Scanner(System.in);
+       String Tname=input.next();
+       System.out.println("Enter the username of the new member");
+
    }
 }

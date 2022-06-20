@@ -14,6 +14,11 @@ public class PrivateTournoment {
     public PrivateTournoment(String name) {
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
+
     public void checktogetnewMember(){
         if(members.size()<=Max_Number){
             this.AbleTogetnewMember=false;
