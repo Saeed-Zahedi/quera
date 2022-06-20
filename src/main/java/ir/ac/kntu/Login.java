@@ -109,6 +109,7 @@ public class Login {
         System.out.println("7-set teacher for class");
         System.out.println("8-join new member to the Private Tournoment");
         System.out.println("9-see the mark table");
+        System.out.println("10-send request for someone to be in Special Tournoment");
     }
     public static void PrintEnterAsClient(){
         System.out.println("1:make class:");
@@ -141,6 +142,8 @@ public class Login {
             break;
             case 9:seeTheMarkTable();
                 break;
+            case 10:sendRequestForSpecialTournoment();
+            break;
             default:
                 System.out.println("not defined");
         }
@@ -304,6 +307,8 @@ public class Login {
                }
            }
        }
+       System.out.println("Special Tournoments");
+
        System.out.println("Enter the name of Tournoment");
        Scanner input=new Scanner(System.in);
        String nameoftournoment=input.next();
@@ -386,6 +391,24 @@ public class Login {
        }
        if(Searcher.NormalTornomentexistense(TournomentName)){
            Searcher.NormalTournomentSearcher(TournomentName).seeTheMarkTable(Q_name);
+       }
+   }
+   public static void sendRequestForSpecialTournoment(){
+       System.out.println("Enter the Username of the User");
+       Scanner input=new Scanner(System.in);
+       String username=input.next();
+       if(Searcher.StudentResistance(username)){
+           System.out.println("enter the name of tournoment");
+           String T_Name=input.next();
+           if(Searcher.SpecialTournomentResistance(T_Name)){
+               Searcher.SpecialTournomentSearcher(T_Name).getRequested().add(Searcher.StudentSearcherByUserName(username));
+           }
+           else{
+               System.out.println("This tournoment doesn't exist");
+           }
+       }
+       else {
+           System.out.println("This user doesn't exist");
        }
    }
 }

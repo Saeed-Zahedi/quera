@@ -200,4 +200,22 @@ public class Searcher {
          }
          return re;
     }
+    public static boolean SpecialTournomentResistance(String name){
+         boolean re=false;
+         for(SpecialTournoment t:AllSpecialTournoments.specialTournoments){
+             if(t.getName().equals(name)){
+                 re=true;
+             }
+         }
+         return re;
+    }
+    public static SpecialTournoment SpecialTournomentSearcher(String name){
+        int re=0;
+        for(int i=0;i<AllSpecialTournoments.specialTournoments.size();i++){
+            if(AllSpecialTournoments.specialTournoments.get(i).getName().equals(name)){
+                re=i;
+            }
+        }
+        return AllSpecialTournoments.specialTournoments.get(re);
+    }
 }
