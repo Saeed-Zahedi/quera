@@ -102,7 +102,7 @@ public class Login {
     public static void PrintEnterAsAdmin(){
         System.out.println("1-make class:");
         System.out.println("2-see the classes");
-        System.out.println("3-make NormalTournament");
+        System.out.println("3-make Tournament");
         System.out.println("4-add Question to tournoment");
         System.out.println("5-see Tournaments");
         System.out.println("6-make Question");
@@ -126,7 +126,7 @@ public class Login {
                 break;
             case 2:PrintClasses();
             break;
-            case 3:makeNormalTournoment();
+            case 3:makeTournoment();
             break;
             case 4:AddQuestiontoTournoment();
             break;
@@ -314,10 +314,18 @@ public class Login {
            System.out.println("this tournoment doesn't exist");
        }
    }
-   public static void makeNormalTournoment(){
-       System.out.println("Enter the name of tournoment");
+   public static void makeTournoment(){
+       System.out.println("enter the type of tournoment\n1-normall\n2-private:");
        Scanner input=new Scanner(System.in);
-       new NormalTournoment(input.next());
+       int type= input.nextInt();
+       System.out.println("Enter the name of tournoment");
+       String name=input.next();
+       switch (type){
+           case 1:new NormalTournoment(name);
+           break;
+           case 2:new PrivateTournoment(name);
+           break;
+       }
    }
    public static void SendAnswerForTournoment(String Username){
        System.out.println("Enter the name of Tournoment");
