@@ -19,6 +19,10 @@ public class PrivateTournoment {
         return name;
     }
 
+    public ArrayList<Users> getMembers() {
+        return members;
+    }
+
     public void checktogetnewMember(){
         if(members.size()<=Max_Number){
             this.AbleTogetnewMember=false;

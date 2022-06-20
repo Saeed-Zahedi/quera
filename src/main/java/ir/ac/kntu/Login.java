@@ -332,6 +332,18 @@ public class Login {
        Scanner input=new Scanner(System.in);
        String Tname=input.next();
        System.out.println("Enter the username of the new member");
-
+       String username=input.next();
+       if(Searcher.PrivateTournomentExistance(Tname)){
+           if(!Searcher.studentResitance(username,Searcher.privateTournoment(Tname).getMembers())){
+               Searcher.privateTournoment(Tname).getMembers().add(Searcher.StudentSearcherByUserName(username));
+               System.out.println("member joined");
+           }
+           else {
+               System.out.println("this person is a member;");
+           }
+       }
+       else {
+           System.out.println("this tournoment doesn't exist");
+       }
    }
 }

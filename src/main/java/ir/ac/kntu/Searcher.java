@@ -191,4 +191,13 @@ public class Searcher {
         }
         return re;
     }
+    public static boolean studentResitance(String username,ArrayList<Users>u){
+         boolean re=false;
+         for(Users t:u){
+             if(t.getUsername().equals(username)){
+                 re=true;
+             }
+         }
+         return re;
+    }
 }
