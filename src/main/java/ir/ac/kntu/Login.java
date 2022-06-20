@@ -331,7 +331,12 @@ public class Login {
        System.out.println("Enter the name of Tournoment");
        Scanner input=new Scanner(System.in);
        String nameoftournoment=input.next();
+       if(Searcher.NormalTornomentexistense(nameoftournoment)){
        Searcher.NormalTournomentSearcher(nameoftournoment).receiveAnswer(Username);
+       }
+       if(Searcher.PrivateTournomentExistance(nameoftournoment)){
+           Searcher.privateTournoment(nameoftournoment).receiveAnswer(Username);
+       }
    }
    public static void AddQuestiontoTournoment(){
        System.out.println("Enter the name of tournoment");
