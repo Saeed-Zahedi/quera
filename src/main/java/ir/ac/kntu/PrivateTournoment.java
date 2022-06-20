@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class PrivateTournoment {
     private String name;
     private ArrayList<Users>members=new ArrayList<>();
+    private ArrayList<Users>joinedmembers=new ArrayList<>();
     private ArrayList<Question>questions=new ArrayList<>();
     private int Max_Number=20;
     private ArrayList<String>History=new ArrayList<>();
@@ -24,9 +25,19 @@ public class PrivateTournoment {
     }
 
     public void checktogetnewMember(){
-        if(members.size()<=Max_Number){
+        if(joinedmembers.size()<=Max_Number){
             this.AbleTogetnewMember=false;
         }
     }
-
+   public void getNewMember(String username){
+        if(this.AbleTogetnewMember){
+            joinedmembers.add(Searcher.StudentSearcherByUserName(username));
+        }
+   }
+    @Override
+    public String toString() {
+        return "PrivateTournoment{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

@@ -136,6 +136,8 @@ public class Login {
             break;
             case 7:setTeacher();
             break;
+            case 8:joinforPTournoment();
+            break;
             default:
                 System.out.println("not defined");
         }
@@ -291,11 +293,22 @@ public class Login {
                System.out.println(tournoment);
            }
        }
+       System.out.println("Private tournomet");
+       for(PrivateTournoment t:AllPrivateTournoment.privateTournoments){
+           for(Users u:t.getMembers()){
+               if(u.getUsername().equals(Username)){
+                   System.out.println(t);
+               }
+           }
+       }
        System.out.println("Enter the name of Tournoment");
        Scanner input=new Scanner(System.in);
        String nameoftournoment=input.next();
        if(Searcher.NormalTornomentexistense(nameoftournoment)){
            Searcher.NormalTournomentSearcher(nameoftournoment).getNewMember(Username);
+       }
+       else if(Searcher.PrivateTournomentExistance(nameoftournoment)){
+           Searcher.privateTournoment(nameoftournoment).getNewMember(Username);
        }
        else {
            System.out.println("this tournoment doesn't exist");
