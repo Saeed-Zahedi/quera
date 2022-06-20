@@ -108,6 +108,7 @@ public class Login {
         System.out.println("6-make Question");
         System.out.println("7-set teacher for class");
         System.out.println("8-join new member to the Private Tournoment");
+        System.out.println("9-see the mark table");
     }
     public static void PrintEnterAsClient(){
         System.out.println("1:make class:");
@@ -138,6 +139,8 @@ public class Login {
             break;
             case 8:joinforPTournoment();
             break;
+            case 9:seeTheMarkTable();
+                break;
             default:
                 System.out.println("not defined");
         }
@@ -370,6 +373,19 @@ public class Login {
        }
        else {
            System.out.println("this tournoment doesn't exist");
+       }
+   }
+   public static void seeTheMarkTable(){
+       System.out.println("Enter the name of Tournoment");
+       Scanner input=new Scanner(System.in);
+       String TournomentName=input.next();
+       System.out.println("Enter the name of the question");
+       String Q_name=input.next();
+       if(Searcher.PrivateTournomentExistance(TournomentName)){
+           Searcher.privateTournoment(TournomentName).seeTheMarkTable(Q_name);
+       }
+       if(Searcher.NormalTornomentexistense(TournomentName)){
+           Searcher.NormalTournomentSearcher(TournomentName).seeTheMarkTable(Q_name);
        }
    }
 }

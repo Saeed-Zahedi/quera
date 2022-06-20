@@ -69,6 +69,14 @@ public class PrivateTournoment {
             System.out.println("you cant send answer for this tournoment");
         }
     }
+    public void seeTheMarkTable(String QuestionName){
+        if(Searcher.QuestionExtension(QuestionName,questions)){
+            System.out.println(Final.get(Searcher.QuestionSearcher(QuestionName)));
+        }
+        else {
+            System.out.println("this tournomenet doesn't have this Question");
+        }
+    }
     @Override
     public String toString() {
         return "PrivateTournoment{" +
