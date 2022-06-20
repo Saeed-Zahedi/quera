@@ -132,8 +132,8 @@ public class Login {
             break;
             case 4:AddQuestiontoTournoment();
             break;
-            /*case 5:seeTournoments(UserName);
-            break;*/
+            case 5:seeTournoments(UserName);
+            break;
             case 6:makeQuestion(UserName);
             break;
             case 7:setTeacher();
@@ -334,7 +334,7 @@ public class Login {
        }
    }
    public static void makeTournoment(){
-       System.out.println("enter the type of tournoment\n1-normall\n2-private:");
+       System.out.println("enter the type of tournoment\n1-normall\n2-private\n3-Special:");
        Scanner input=new Scanner(System.in);
        int type= input.nextInt();
        System.out.println("Enter the name of tournoment");
@@ -344,6 +344,12 @@ public class Login {
            break;
            case 2:new PrivateTournoment(name);
            break;
+           case 3:
+               System.out.println("Enter the max number of users");
+               Scanner i=new Scanner(System.in);
+               int max= input.nextInt();
+               new SpecialTournoment(name,max);
+               break;
        }
    }
    public static void SendAnswerForTournoment(String Username){
