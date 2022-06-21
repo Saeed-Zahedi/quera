@@ -27,6 +27,12 @@ public class Question {
         this.visibleStatusForTable=visiableStatuseForTable;
     }
 
+    public Question(String name, double mark, String answer) {
+        this.name = name;
+        this.mark = mark;
+        this.answer = answer;
+    }
+
     public Question(String name, double mark) {
         this.name = name;
         this.mark = mark;
