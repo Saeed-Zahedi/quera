@@ -384,7 +384,7 @@ public class Login {
                System.out.println("this Qestion desn't exist");
            }
        }
-       if(Searcher.SpecialTournomentResistance(TournomentName)){
+       else if(Searcher.SpecialTournomentResistance(TournomentName)){
            if(Searcher.QuestionExtension(QuestionName,QuestionBank.questions)){
                Searcher.SpecialTournomentSearcher(TournomentName).getQuestions().add(Searcher.QuestionSearcher(QuestionName));
            }
@@ -392,7 +392,7 @@ public class Login {
                System.out.println("this Qestion desn't exist");
            }
        }
-       if(Searcher.PrivateTournomentExistance(TournomentName)){
+       else if(Searcher.PrivateTournomentExistance(TournomentName)){
            if(Searcher.QuestionExtension(QuestionName,QuestionBank.questions)){
                Searcher.privateTournoment(TournomentName).getQuestions().add(Searcher.QuestionSearcher(QuestionName));
            }
@@ -434,6 +434,9 @@ public class Login {
        }
        if(Searcher.NormalTornomentexistense(TournomentName)){
            Searcher.NormalTournomentSearcher(TournomentName).seeTheMarkTable(Q_name);
+       }
+       if(Searcher.SpecialTournomentResistance(TournomentName)){
+           Searcher.SpecialTournomentSearcher(TournomentName).seeTheMarkTable(Q_name);
        }
    }
    public static void sendRequestForSpecialTournoment(){
