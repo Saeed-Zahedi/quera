@@ -23,6 +23,10 @@ public class SpecialTournoment {
         AllSpecialTournoments.specialTournoments.add(this);
     }
 
+    public ArrayList<Question> getQuestions() {
+        return questions;
+    }
+
     public boolean isVisibilityForUsers() {
         return visibilityForUsers;
     }
@@ -103,5 +107,12 @@ public class SpecialTournoment {
         else {
             System.out.println("this tournomenet doesn't have this Question");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "SpecialTournoment{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

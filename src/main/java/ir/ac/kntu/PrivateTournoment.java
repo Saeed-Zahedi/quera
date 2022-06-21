@@ -18,6 +18,10 @@ public class PrivateTournoment {
         AllPrivateTournoment.privateTournoments.add(this);
     }
 
+    public ArrayList<Question> getQuestions() {
+        return questions;
+    }
+
     public String getName() {
         return name;
     }

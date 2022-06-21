@@ -1,5 +1,6 @@
 package ir.ac.kntu;
 
+import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 import java.lang.*;
 import java.util.concurrent.ScheduledExecutorService;
@@ -132,7 +133,7 @@ public class Login {
             break;
             case 4:AddQuestiontoTournoment();
             break;
-            case 5:seeTournoments(UserName);
+            case 5:seeTournoments();
             break;
             case 6:makeQuestion(UserName);
             break;
@@ -141,7 +142,7 @@ public class Login {
             case 8:joinforPTournoment();
             break;
             case 9:seeTheMarkTable();
-                break;
+            break;
             case 10:sendRequestForSpecialTournoment();
             break;
             default:
@@ -158,7 +159,7 @@ public class Login {
                     PrintAsClientType(UserType(UserName,className),className,UserName);
                 break;
             case 3:joinClass(UserName);
-                   break;
+            break;
             case 4:joinTournomet(UserName);
             break;
             case 5:SendAnswerForTournoment(UserName);
@@ -383,6 +384,25 @@ public class Login {
                System.out.println("this Qestion desn't exist");
            }
        }
+       if(Searcher.SpecialTournomentResistance(TournomentName)){
+           if(Searcher.QuestionExtension(QuestionName,QuestionBank.questions)){
+               Searcher.SpecialTournomentSearcher(TournomentName).getQuestions().add(Searcher.QuestionSearcher(QuestionName));
+           }
+           else {
+               System.out.println("this Qestion desn't exist");
+           }
+       }
+       if(Searcher.PrivateTournomentExistance(TournomentName)){
+           if(Searcher.QuestionExtension(QuestionName,QuestionBank.questions)){
+               Searcher.privateTournoment(TournomentName).getQuestions().add(Searcher.QuestionSearcher(QuestionName));
+           }
+           else {
+               System.out.println("this Qestion desn't exist");
+           }
+       }
+       else {
+           System.out.println("this tournoment doesn't exist");
+       }
    }
    public static void joinforPTournoment(){
        System.out.println("Enter the name of tournoment");
@@ -432,6 +452,20 @@ public class Login {
        }
        else {
            System.out.println("This user doesn't exist");
+       }
+   }
+   public static void seeTournoments(){
+       System.out.println("Normall tournoments");
+       for(NormalTournoment t:AllNormalTournoment.normalTournoments){
+           System.out.println(t.toString());
+       }
+       System.out.println("private tournoment");
+       for(PrivateTournoment t:AllPrivateTournoment.privateTournoments){
+           System.out.println(t.toString());
+       }
+       System.out.println("SpecialTournoments");
+       for(SpecialTournoment t:AllSpecialTournoments.specialTournoments){
+           System.out.println(t.toString());
        }
    }
 }
