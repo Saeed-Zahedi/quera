@@ -31,6 +31,7 @@ public class Question {
         this.name = name;
         this.mark = mark;
         this.answer = answer;
+        QuestionBank.questions.add(this);
     }
 
     public Question(String name, double mark) {

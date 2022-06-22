@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import static javax.swing.UIManager.put;
+
 public class NormalTournoment {
     private boolean visibilityFoEveryOne=true;
     private String name;
@@ -12,10 +14,15 @@ public class NormalTournoment {
     private ArrayList<Users>users=new ArrayList<>();
     private ArrayList<String>History=new ArrayList<>();
     private HashMap<Question,HashMap<Users,Double>>Final=new HashMap<>();
+    private HashMap<Users,Double>FinalValue=new HashMap<>();
 
     public NormalTournoment(String name) {
         this.name = name;
         AllNormalTournoment.normalTournoments.add(this);
+    }
+
+    public ArrayList<String> getHistory() {
+        return History;
     }
 
     public ArrayList<Question> getQuestions() {
@@ -50,10 +57,11 @@ public class NormalTournoment {
             double mark=0;
             if(Searcher.QuestionSearcher(Q_Name).getAnswer().equals(answer)){
                 mark=Searcher.QuestionSearcher(Q_Name).getMark();
+
             }
-           if(Final.get(Searcher.QuestionSearcher(Q_Name)).get(Searcher.StudentSearcherByUserName(username))<mark){
-               Final.get(Searcher.QuestionSearcher(Q_Name)).put(Searcher.StudentSearcherByUserName(username),mark);
-           }
+                FinalValue.put(Searcher.StudentSearcherByUserName(username),mark);
+               Final.put((Searcher.QuestionSearcher(Q_Name)),FinalValue);
+
         }
         else {
             System.out.println("this tournomenet doesn't have this Question");

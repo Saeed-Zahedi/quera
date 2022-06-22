@@ -145,6 +145,8 @@ public class Login {
             break;
             case 10:sendRequestForSpecialTournoment();
             break;
+            case 11:seeTheHistory();
+            break;
             default:
                 System.out.println("not defined");
         }
@@ -360,10 +362,10 @@ public class Login {
        if(Searcher.NormalTornomentexistense(nameoftournoment)){
        Searcher.NormalTournomentSearcher(nameoftournoment).receiveAnswer(Username);
        }
-       if(Searcher.PrivateTournomentExistance(nameoftournoment)){
+       else if(Searcher.PrivateTournomentExistance(nameoftournoment)){
            Searcher.privateTournoment(nameoftournoment).receiveAnswer(Username);
        }
-       if(Searcher.SpecialTournomentResistance(nameoftournoment)){
+      else if(Searcher.SpecialTournomentResistance(nameoftournoment)){
            Searcher.SpecialTournomentSearcher(nameoftournoment).receiveAnswer(Username);
        }
        else {
@@ -469,6 +471,23 @@ public class Login {
        System.out.println("SpecialTournoments");
        for(SpecialTournoment t:AllSpecialTournoments.specialTournoments){
            System.out.println(t.toString());
+       }
+   }
+   public static void seeTheHistory(){
+       System.out.println("Enter the name of Tournoment ");
+       Scanner input=new Scanner(System.in);
+       String Tname=input.next();
+       if(Searcher.NormalTornomentexistense(Tname)){
+           System.out.println(Searcher.NormalTournomentSearcher(Tname).getHistory());
+       }
+       else if(Searcher.SpecialTournomentResistance(Tname)){
+           System.out.println(Searcher.SpecialTournomentSearcher(Tname).getHistory());
+       }
+       else if(Searcher.PrivateTournomentExistance(Tname)){
+           System.out.println(Searcher.privateTournoment(Tname).getHistory());
+       }
+       else {
+           System.out.println("This Tournoment doesn't Exist");
        }
    }
 }

@@ -131,6 +131,7 @@ public class Admin {
             String name=input.next();
             System.out.println("enter the mark:");
             double mark=input.nextDouble();
+            System.out.println("enter the answer of the question");
             String answer=input.next();
             new Question(name,mark,answer);
         }

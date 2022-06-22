@@ -22,6 +22,10 @@ public class PrivateTournoment {
         return questions;
     }
 
+    public ArrayList<String> getHistory() {
+        return History;
+    }
+
     public String getName() {
         return name;
     }

@@ -54,7 +54,7 @@ public class Searcher {
         for(int i=0;i<HomeWork.size();i++){
             if(HomeWork.get(i).getName().equals(QuestionName)){
                 Re=true;
-                break;
+
             }
         }
         return Re;

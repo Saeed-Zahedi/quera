@@ -23,6 +23,10 @@ public class SpecialTournoment {
         AllSpecialTournoments.specialTournoments.add(this);
     }
 
+    public ArrayList<String> getHistory() {
+        return History;
+    }
+
     public ArrayList<Question> getQuestions() {
         return questions;
     }
