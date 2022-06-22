@@ -5,7 +5,7 @@ public class Class {
      private String name;
      private String InstituteName;
      private String TeacherName;
-     private int    YearOfCourse;
+     private int  YearOfCourse;
      private boolean ClassStatusForRegestion;
      private boolean PrivateStatus;
      private String  Password;

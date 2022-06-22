@@ -109,8 +109,12 @@ public class Login {
         System.out.println("6-make Question");
         System.out.println("7-set teacher for class");
         System.out.println("8-join new member to the Private Tournoment");
-        System.out.println("9-see the mark table");
+        System.out.println("9-see the mark table for tournoment");
         System.out.println("10-send request for someone to be in Special Tournoment");
+        System.out.println("11-see the history of sending answer for tournoments");
+        System.out.println("12-add question to the HW");
+        System.out.println("13-change user to a admin");
+        System.out.println("14-See the mark table for classes");
     }
     public static void PrintEnterAsClient(){
         System.out.println("1:make class:");
@@ -147,6 +151,12 @@ public class Login {
             break;
             case 11:seeTheHistory();
             break;
+            case 12:AddQuestionTOClass();
+            break;
+            case 13:ChangeUserToAdmin();
+            break;
+            case 14: seeTheMarkTableForClasses();
+                break;
             default:
                 System.out.println("not defined");
         }
@@ -491,6 +501,63 @@ public class Login {
        }
        else {
            System.out.println("This Tournoment doesn't Exist");
+       }
+   }
+   public static void AddQuestionTOClass(){
+       System.out.println("Enter the name of the class");
+       Scanner input=new Scanner(System.in);
+       String ClassName =input.next();
+       System.out.println("Enter the name of the Question");
+       String Q_name=input.next();
+       if(Searcher.classResistanceByName(ClassName,AllClasses.Allclasses)){
+           if(Searcher.QuestionExistenceByName(Q_name)){
+           Searcher.classSearcherByName(ClassName).getHomeWorks().add(Searcher.QuestionSearcher(Q_name));
+           }
+           else {
+               System.out.println("This Question doesn't Exist ");
+           }
+       }
+       else {
+           System.out.println("This class doesn't Exist ");
+       }
+   }
+   public static void ChangeUserToAdmin(){
+       System.out.println("Enter the Username of the user");
+       Scanner input=new Scanner(System.in);
+       String Username=input.next();
+       if(Searcher.AdminResistence(Username)){
+           System.out.println("This username is ofr a admin not a user");
+       }
+       else {
+           if(Searcher.StudentResistance(Username)){
+               new Admin(Searcher.StudentSearcherByUserName(Username).getName(),Searcher.StudentSearcherByUserName(Username).getUsername(),Searcher.StudentSearcherByUserName(Username).getPassWord());
+               for(int i=0;i<AllUsers.allUsers.size();i++){
+                   if(AllUsers.allUsers.get(i).getUsername().equals(Username)){
+                       AllUsers.allUsers.remove(i);
+                   }
+               }
+           }
+           else {
+               System.out.println("there is no User by this Username");
+           }
+       }
+   }
+   public static void seeTheMarkTableForClasses(){
+       System.out.println("Enter the name of the class");
+       Scanner input=new Scanner(System.in);
+       String classname=input.next();
+       System.out.println("Enter the name of the Question");
+       String Q_name=input.next();
+       if(Searcher.classResistanceByName(classname,AllClasses.Allclasses)){
+           if(Searcher.QuestionExtension(Q_name,Searcher.classSearcherByName(classname).getHomeWorks())){
+               Searcher.QuestionSearcher(Q_name).marksTable();
+           }
+           else{
+               System.out.println("this Question isn't in this class");
+           }
+       }
+       else {
+           System.out.println("There is no class by this name");
        }
    }
 }
