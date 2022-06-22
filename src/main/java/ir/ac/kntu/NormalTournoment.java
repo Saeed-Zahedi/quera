@@ -25,6 +25,14 @@ public class NormalTournoment {
         this.day=day;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
     public ArrayList<String> getHistory() {
         return History;
     }

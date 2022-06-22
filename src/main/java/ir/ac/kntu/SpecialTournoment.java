@@ -28,6 +28,18 @@ public class SpecialTournoment {
         this.day=day;
     }
 
+    public int getMax_Number() {
+        return Max_Number;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
     public ArrayList<String> getHistory() {
         return History;
     }

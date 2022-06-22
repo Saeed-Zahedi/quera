@@ -1,6 +1,7 @@
 package ir.ac.kntu;
 
 import java.sql.SQLOutput;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class app {
@@ -21,7 +22,7 @@ public class app {
                     new Users(Singin.SingInPrint1(), Singin.SingInPrint2(), Singin.SingInPrint4(), Singin.SingInPrint5(), Singin.SingInPrint6(), Singin.SingInPrint3());
                     app app = new app();
                     break;
-                case 3:
+                case 3:AsGuest();
                     break;
                 case 4:
                     System.out.println("good bye");
@@ -46,6 +47,23 @@ public class app {
 
     public void AsStudent(){
         System.out.println("1-send Home Work");
+    }
+    public void AsGuest(){
+        for(NormalTournoment t:AllNormalTournoment.normalTournoments){
+            if (t.getDate().plusDays(t.getDay()).isBefore(LocalDate.now())){
+                System.out.println(t.getQuestions());
+            }
+        }
+        for(PrivateTournoment t:AllPrivateTournoment.privateTournoments){
+            if(t.getDate().plusDays(t.getDay()).isBefore(LocalDate.now())){
+                System.out.println(t.getQuestions());
+            }
+        }
+        for(SpecialTournoment t:AllSpecialTournoments.specialTournoments){
+            if(t.getDate().plusDays(t.getDay()).isBefore(LocalDate.now())){
+                System.out.println(t.getQuestions());
+            }
+        }
     }
 
 }

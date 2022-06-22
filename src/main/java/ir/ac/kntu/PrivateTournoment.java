@@ -23,6 +23,14 @@ public class PrivateTournoment {
         date=LocalDate.now();
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
     public ArrayList<Question> getQuestions() {
         return questions;
     }
