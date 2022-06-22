@@ -342,16 +342,19 @@ public class Login {
        int type= input.nextInt();
        System.out.println("Enter the name of tournoment");
        String name=input.next();
+       System.out.println("Enter the number of the days that this tournoment is availiable");
+       int day=input.nextInt();
        switch (type){
-           case 1:new NormalTournoment(name);
+           case 1:new NormalTournoment(name,day);
            break;
-           case 2:new PrivateTournoment(name);
+           case 2:
+               new PrivateTournoment(name,day);
            break;
            case 3:
                System.out.println("Enter the max number of users");
                Scanner i=new Scanner(System.in);
                int max= input.nextInt();
-               new SpecialTournoment(name,max);
+               new SpecialTournoment(name,max,day);
                break;
        }
    }

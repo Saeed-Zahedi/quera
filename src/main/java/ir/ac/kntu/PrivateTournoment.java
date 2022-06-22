@@ -1,5 +1,6 @@
 package ir.ac.kntu;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -13,9 +14,13 @@ public class PrivateTournoment {
     private ArrayList<String>History=new ArrayList<>();
     private HashMap<Question, HashMap<Users,Double>>Final=new HashMap<>();
     private boolean AbleTogetnewMember=true;
-    public PrivateTournoment(String name) {
+    private LocalDate date;
+    private int day;
+    public PrivateTournoment(String name,int day) {
         this.name = name;
         AllPrivateTournoment.privateTournoments.add(this);
+        this.day=day;
+        date=LocalDate.now();
     }
 
     public ArrayList<Question> getQuestions() {

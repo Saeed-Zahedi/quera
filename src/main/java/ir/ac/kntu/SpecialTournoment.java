@@ -1,5 +1,6 @@
 package ir.ac.kntu;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -14,13 +15,17 @@ public class SpecialTournoment {
     private ArrayList<Group>groups=new ArrayList<>();
     private ArrayList<String>History=new ArrayList<>();
     private HashMap<Question, HashMap<Group,Double>>Final=new HashMap<>();
-    public SpecialTournoment(String name,int Max_Number) {
+    private LocalDate date;
+    private int day;
+    public SpecialTournoment(String name,int Max_Number,int day) {
         this.name = name;
         if(Max_Number>100){
             Max_Number=100;
         }
         this.Max_Number=Max_Number;
         AllSpecialTournoments.specialTournoments.add(this);
+        date=LocalDate.now();
+        this.day=day;
     }
 
     public ArrayList<String> getHistory() {
