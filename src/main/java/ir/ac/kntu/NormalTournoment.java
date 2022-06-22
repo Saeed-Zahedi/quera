@@ -49,26 +49,37 @@ public class NormalTournoment {
         if(users.size()>=MAX_Number){
             this.visibilityFoEveryOne=false;
         }
+        LocalDate d;
+        d=LocalDate.now();
+        if(d.isAfter(date.plusDays(day))){
+            this.visibilityFoEveryOne=false;
+        }
     }
     public void receiveAnswer(String username){
-        System.out.println("Enter the name of the question:");
-        Scanner input=new Scanner(System.in);
-        String Q_Name=input.next();
-        System.out.println("Enter the answer");
-        String answer=input.next();
-        History.add(username+" "+Q_Name+" "+answer);
-        if(Searcher.QuestionExtension(Q_Name,questions)){
-            double mark=0;
-            if(Searcher.QuestionSearcher(Q_Name).getAnswer().equals(answer)){
-                mark=Searcher.QuestionSearcher(Q_Name).getMark();
+        LocalDate d;
+        d=LocalDate.now();
+        if(d.isBefore(date.plusDays(day))) {
+            System.out.println("Enter the name of the question:");
+            Scanner input = new Scanner(System.in);
+            String Q_Name = input.next();
+            System.out.println("Enter the answer");
+            String answer = input.next();
+            History.add(username + " " + Q_Name + " " + answer);
+            if (Searcher.QuestionExtension(Q_Name, questions)) {
+                double mark = 0;
+                if (Searcher.QuestionSearcher(Q_Name).getAnswer().equals(answer)) {
+                    mark = Searcher.QuestionSearcher(Q_Name).getMark();
 
+                }
+                FinalValue.put(Searcher.StudentSearcherByUserName(username), mark);
+                Final.put((Searcher.QuestionSearcher(Q_Name)), FinalValue);
+
+            } else {
+                System.out.println("this tournomenet doesn't have this Question");
             }
-                FinalValue.put(Searcher.StudentSearcherByUserName(username),mark);
-               Final.put((Searcher.QuestionSearcher(Q_Name)),FinalValue);
-
         }
         else {
-            System.out.println("this tournomenet doesn't have this Question");
+            System.out.println("time for send answer is up");
         }
     }
     public void seeTheMarkTable(String QuestionName){

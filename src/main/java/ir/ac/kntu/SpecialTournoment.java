@@ -51,6 +51,11 @@ public class SpecialTournoment {
         if(joined.size()>=Max_Number){
             this.visibilityForUsers=false;
         }
+        LocalDate d;
+        d=LocalDate.now();
+        if(d.isAfter(date.plusDays(day))){
+            this.visibilityForUsers=false;
+        }
     }
     public void getNewMember(){
         checkthevisbility();
@@ -77,36 +82,41 @@ public class SpecialTournoment {
             System.out.println("you hava already joined to this tournoment");
         }
     public void receiveAnswer(String username){
-        boolean flag=false;
-        for(Users u:joined){
-            if(u.getUsername().equals(username)){
-                flag=true;
-            }
-        }
-        if(flag){
-            System.out.println("Enter the name of the question:");
-            Scanner input=new Scanner(System.in);
-            String Q_Name=input.next();
-            System.out.println("Enter the answer");
-            String answer=input.next();
-            History.add(Searcher.WhatIsMyGroup(username,groups)+" "+Q_Name+" "+answer);
-            if(Searcher.QuestionExtension(Q_Name,questions)){
-                double mark=0;
-                if(Searcher.QuestionSearcher(Q_Name).getAnswer().equals(answer)){
-                    mark=Searcher.QuestionSearcher(Q_Name).getMark();
-                }
-                if(Final.get(Searcher.QuestionSearcher(Q_Name)).get(Searcher.WhatIsMyGroup(username,groups))<mark){
-                    Final.get(Searcher.QuestionSearcher(Q_Name)).remove(Searcher.WhatIsMyGroup(username,groups));
-                    Final.get(Searcher.QuestionSearcher(Q_Name)).put(Searcher.WhatIsMyGroup(username,groups),mark);
-                    System.out.println("Answer received");
+        LocalDate d;
+        d=LocalDate.now();
+        if(d.isBefore(date.plusDays(day))) {
+            boolean flag = false;
+            for (Users u : joined) {
+                if (u.getUsername().equals(username)) {
+                    flag = true;
                 }
             }
-            else {
-                System.out.println("this tournomenet doesn't have this Question");
+            if (flag) {
+                System.out.println("Enter the name of the question:");
+                Scanner input = new Scanner(System.in);
+                String Q_Name = input.next();
+                System.out.println("Enter the answer");
+                String answer = input.next();
+                History.add(Searcher.WhatIsMyGroup(username, groups) + " " + Q_Name + " " + answer);
+                if (Searcher.QuestionExtension(Q_Name, questions)) {
+                    double mark = 0;
+                    if (Searcher.QuestionSearcher(Q_Name).getAnswer().equals(answer)) {
+                        mark = Searcher.QuestionSearcher(Q_Name).getMark();
+                    }
+                    if (Final.get(Searcher.QuestionSearcher(Q_Name)).get(Searcher.WhatIsMyGroup(username, groups)) < mark) {
+                        Final.get(Searcher.QuestionSearcher(Q_Name)).remove(Searcher.WhatIsMyGroup(username, groups));
+                        Final.get(Searcher.QuestionSearcher(Q_Name)).put(Searcher.WhatIsMyGroup(username, groups), mark);
+                        System.out.println("Answer received");
+                    }
+                } else {
+                    System.out.println("this tournomenet doesn't have this Question");
+                }
+            } else {
+                System.out.println("you cant send answer for this tournoment");
             }
         }
         else {
-            System.out.println("you cant send answer for this tournoment");
+            System.out.println("time for sending the Answer is up");
         }
     }
     public void seeTheMarkTable(String QuestionName){
