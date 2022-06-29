@@ -9,15 +9,25 @@ import static javax.swing.UIManager.put;
 
 public class NormalTournoment {
     private boolean visibilityFoEveryOne=true;
+
     private String name;
+
     private int MAX_Number=50;
+
     private ArrayList<Question>questions=new ArrayList<>();
+
     private ArrayList<Users>users=new ArrayList<>();
+
     private ArrayList<String>History=new ArrayList<>();
+
     private HashMap<Question,HashMap<Users,Double>>Final=new HashMap<>();
+
     private HashMap<Users,Double>FinalValue=new HashMap<>();
+
     private LocalDate date;
+
     private int day;
+
     public NormalTournoment(String name,int day) {
         this.name = name;
         AllNormalTournoment.normalTournoments.add(this);
@@ -53,6 +63,7 @@ public class NormalTournoment {
         users.add(Searcher.StudentSearcherByUserName(username));
         checkTheVisibility();
     }
+
     public void checkTheVisibility(){
         if(users.size()>=MAX_Number){
             this.visibilityFoEveryOne=false;
@@ -63,6 +74,7 @@ public class NormalTournoment {
             this.visibilityFoEveryOne=false;
         }
     }
+
     public void receiveAnswer(String username){
         LocalDate d;
         d=LocalDate.now();
@@ -85,16 +97,15 @@ public class NormalTournoment {
             } else {
                 System.out.println("this tournomenet doesn't have this Question");
             }
-        }
-        else {
+        } else {
             System.out.println("time for send answer is up");
         }
     }
+
     public void seeTheMarkTable(String QuestionName){
         if(Searcher.QuestionExtension(QuestionName,questions)){
             System.out.println(Final.get(Searcher.QuestionSearcher(QuestionName)));
-        }
-        else {
+        } else {
             System.out.println("this tournomenet doesn't have this Question");
         }
     }

@@ -1,19 +1,33 @@
 package ir.ac.kntu;
+
 import java.util.ArrayList;
 
 public class Class {
-     private String name;
-     private String InstituteName;
-     private String TeacherName;
-     private int  YearOfCourse;
-     private boolean ClassStatusForRegestion;
-     private boolean PrivateStatus;
-     private String  Password;
-     private String  expelaination;
-     private ArrayList<Users>members=new ArrayList<>();
-     private Users TA;
-     private Users Teacher;
-     private ArrayList<Question>HomeWorks=new ArrayList<>();
+
+    private String name;
+
+    private String InstituteName;
+
+    private String TeacherName;
+
+    private int  YearOfCourse;
+
+    private boolean ClassStatusForRegestion;
+
+    private boolean PrivateStatus;
+
+    private String  Password;
+
+    private String  expelaination;
+
+    private ArrayList<Users>members=new ArrayList<>();
+
+    private Users TA;
+
+    private Users Teacher;
+
+    private ArrayList<Question>HomeWorks=new ArrayList<>();
+
     public Class(String name, String instituteName, String teacherName, int yearOfCourse, boolean classStatusForRegestion, boolean privateStatus, String password, String expelaination, Users TA) {
         this.name = name;
         InstituteName = instituteName;

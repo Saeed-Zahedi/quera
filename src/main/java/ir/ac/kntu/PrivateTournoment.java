@@ -7,15 +7,25 @@ import java.util.Scanner;
 
 public class PrivateTournoment {
     private String name;
+
     private ArrayList<Users>members=new ArrayList<>();
+
     private ArrayList<Users>joinedmembers=new ArrayList<>();
+
     private ArrayList<Question>questions=new ArrayList<>();
+
     private int Max_Number=20;
+
     private ArrayList<String>History=new ArrayList<>();
+
     private HashMap<Question, HashMap<Users,Double>>Final=new HashMap<>();
+
     private boolean AbleTogetnewMember=true;
+
     private LocalDate date;
+
     private int day;
+
     public PrivateTournoment(String name,int day) {
         this.name = name;
         AllPrivateTournoment.privateTournoments.add(this);
@@ -57,12 +67,14 @@ public class PrivateTournoment {
             this.AbleTogetnewMember=false;
         }
     }
-   public void getNewMember(String username){
+
+    public void getNewMember(String username){
         if(this.AbleTogetnewMember){
             joinedmembers.add(Searcher.StudentSearcherByUserName(username));
         }
 
-   }
+    }
+
     public void receiveAnswer(String username){
 
         LocalDate d;
@@ -97,19 +109,19 @@ public class PrivateTournoment {
             } else {
                 System.out.println("you cant send answer for this tournoment");
             }
-        }
-        else {
+        } else {
             System.out.println("time for sending answer is up");
         }
     }
+
     public void seeTheMarkTable(String QuestionName){
         if(Searcher.QuestionExtension(QuestionName,questions)){
             System.out.println(Final.get(Searcher.QuestionSearcher(QuestionName)));
-        }
-        else {
+        } else {
             System.out.println("this tournomenet doesn't have this Question");
         }
     }
+
     @Override
     public String toString() {
         return "PrivateTournoment{" +

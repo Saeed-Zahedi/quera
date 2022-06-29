@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class app {
     public  app() {
         AllAdmins.admins.add(new Admin("saeed","saeed","1234"));
-        System.out.println(AllAdmins.admins.get(0));
         EnterPrint();
         try {
             Scanner input = new Scanner(System.in);
@@ -32,11 +31,11 @@ public class app {
                     app app2 = new app();
                     break;
             }
-        }
-        catch (Exception e){
+        } catch (Exception e){
             app app=new app();
         }
     }
+
     public void EnterPrint(){
         System.out.println("Hi Enter your number:");
         System.out.println("1:login");
@@ -48,6 +47,7 @@ public class app {
     public void AsStudent(){
         System.out.println("1-send Home Work");
     }
+
     public void AsGuest(){
         for(NormalTournoment t:AllNormalTournoment.normalTournoments){
             if (t.getDate().plusDays(t.getDay()).isBefore(LocalDate.now())){
